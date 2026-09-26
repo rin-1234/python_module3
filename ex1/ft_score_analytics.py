@@ -1,11 +1,14 @@
 import sys
 
+
 def main():
     scores = []
     argc = len(sys.argv)
 
     if argc < 2:
-        print("No scores provided. Usage: python3 ft_score_analytics.py <score1> <score2> ...")
+        print(
+            "No scores provided. Usage: python3 ft_score_analytics.py <score1> <score2> ..."
+        )
         return
 
     for i in range(1, argc):
@@ -16,9 +19,11 @@ def main():
 
     list_len = len(scores)
     if list_len == 0:
-        print("No scores provided. Usage: python3 ft_score_analytics.py <score1> <score2> ...")
+        print(
+            "No scores provided. Usage: python3 ft_score_analytics.py <score1> <score2> ..."
+        )
         return
-    
+
     print(f"Score Processed: {scores}")
     print(f"Total players: {list_len}")
     print(f"Total score: {sum(scores)}")
@@ -26,9 +31,6 @@ def main():
     print(f"High score: {max(scores)}")
     print(f"Low score: {min(scores)}")
     print(f"Score range: {max(scores) - min(scores)}")
-
-
-    
 
 
 if __name__ == "__main__":
