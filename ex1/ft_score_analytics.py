@@ -1,13 +1,14 @@
 import sys
 
 
-def main():
+def main() -> None:
     scores = []
     argc = len(sys.argv)
 
     if argc < 2:
         print(
-            "No scores provided. Usage: python3 ft_score_analytics.py <score1> <score2> ..."
+            "No scores provided. Usage: \n"
+            "python3 ft_score_analytics.py <score1> <score2> ..."
         )
         return
 
@@ -20,7 +21,8 @@ def main():
     list_len = len(scores)
     if list_len == 0:
         print(
-            "No scores provided. Usage: python3 ft_score_analytics.py <score1> <score2> ..."
+            "No scores provided. Usage: \n"
+            "python3 ft_score_analytics.py <score1> <score2> ..."
         )
         return
 

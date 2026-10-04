@@ -1,7 +1,7 @@
 import math
 
 
-def get_player_pos():
+def get_player_pos() -> tuple[float, float, float]:
     while True:
         input_str = input("Enter new coordinates as floats in format 'x,y,z':")
         parts = input_str.split(",")
@@ -10,7 +10,7 @@ def get_player_pos():
             continue
 
         try:
-            coordinates = tuple(float(p) for p in parts)
+            coordinates = (float(parts[0]), float(parts[1]), float(parts[2]))
         except ValueError as e:
             print(f"Error on parameter :{e}")
             continue
@@ -19,7 +19,9 @@ def get_player_pos():
     return coordinates
 
 
-def calc_distance(parts1, parts2):
+def calc_distance(
+    parts1: tuple[float, float, float], parts2: tuple[float, float, float]
+) -> float:
     distance = math.sqrt(
         (parts2[0] - parts1[0]) ** 2
         + (parts2[1] - parts1[1]) ** 2
@@ -28,12 +30,15 @@ def calc_distance(parts1, parts2):
     return distance
 
 
-def main():
+def main() -> None:
     print("=== Game Coordinate System ===")
     print("Get a first set of coordinates")
     coordinates = get_player_pos()
     print(f"Got a first tuple: {coordinates}")
-    print(f"It includes: X={coordinates[0]}, Y={coordinates[1]}, Z={coordinates[2]}")
+    print(
+        f"It includes: X={coordinates[0]}, \n"
+        f"Y={coordinates[1]}, Z={coordinates[2]}"
+    )
     origin = (0.0, 0.0, 0.0)
     distance = calc_distance(origin, coordinates)
     print(f"Distance to center:{distance:.4f}")

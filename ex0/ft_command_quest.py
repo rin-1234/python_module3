@@ -1,7 +1,7 @@
 import sys
 
 
-def main():
+def main() -> None:
     argc = len(sys.argv)
     program_name = sys.argv[0]
 
