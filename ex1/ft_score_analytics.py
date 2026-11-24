@@ -7,7 +7,7 @@ def main() -> None:
 
     if argc < 2:
         print(
-            "No scores provided. Usage: \n"
+            "No scores provided. Usage: "
             "python3 ft_score_analytics.py <score1> <score2> ..."
         )
         return
@@ -16,17 +16,17 @@ def main() -> None:
         try:
             scores.append(int(sys.argv[i]))
         except ValueError:
-            print(f"Invalid parameter: {sys.argv[i]}")
+            print(f"Invalid parameter: '{sys.argv[i]}'")
 
     list_len = len(scores)
     if list_len == 0:
         print(
-            "No scores provided. Usage: \n"
+            "No scores provided. Usage: "
             "python3 ft_score_analytics.py <score1> <score2> ..."
         )
         return
 
-    print(f"Score Processed: {scores}")
+    print(f"Scores Processed: {scores}")
     print(f"Total players: {list_len}")
     print(f"Total score: {sum(scores)}")
     print(f"Average score: {sum(scores) / list_len}")

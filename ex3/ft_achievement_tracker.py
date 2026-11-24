@@ -14,7 +14,7 @@ ALL_ACHIEVEMENTS = [
 ]
 
 
-def get_player_achievements() -> set[str]:
+def gen_player_achievements() -> set[str]:
     num = random.randint(1, 10)
     achivements = set(random.sample(ALL_ACHIEVEMENTS, num))
     return achivements
@@ -25,10 +25,10 @@ def main() -> None:
 
     all_achievements = set(ALL_ACHIEVEMENTS)
 
-    alice = get_player_achievements()
-    bob = get_player_achievements()
-    charlie = get_player_achievements()
-    dylan = get_player_achievements()
+    alice = gen_player_achievements()
+    bob = gen_player_achievements()
+    charlie = gen_player_achievements()
+    dylan = gen_player_achievements()
 
     print(f"Player Alice: {alice}")
     print(f"Player Bob: {bob}")

@@ -6,7 +6,7 @@ def get_player_pos() -> tuple[float, float, float]:
         input_str = input("Enter new coordinates as floats in format 'x,y,z':")
         parts = input_str.split(",")
         if len(parts) != 3:
-            print("Invaild syntax")
+            print("Invalid syntax")
             continue
 
         try:
@@ -36,7 +36,7 @@ def main() -> None:
     coordinates = get_player_pos()
     print(f"Got a first tuple: {coordinates}")
     print(
-        f"It includes: X={coordinates[0]}, \n"
+        f"It includes: X={coordinates[0]}, "
         f"Y={coordinates[1]}, Z={coordinates[2]}"
     )
     origin = (0.0, 0.0, 0.0)

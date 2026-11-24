@@ -1,23 +1,21 @@
 import sys
 
-inventory = {"magic_item": 90}
 
-
-def find_max_item(arg: dict[str, int]) -> str:
-    max_item = ""
-    value = 0
+def find_max_item(arg: dict[str, int]) -> str | None:
+    max_item: str | None = None
+    value: int | None = None
     for key in arg:
-        if value < arg[key]:
+        if value is None or arg[key] > value:
             value = arg[key]
             max_item = key
     return max_item
 
 
-def find_min_item(arg: dict[str, int]) -> str:
-    min_item = ""
-    value = float('inf')
+def find_min_item(arg: dict[str, int]) -> str | None:
+    min_item: str | None = None
+    value: int | None = None
     for key in arg:
-        if value > arg[key]:
+        if value is None or arg[key] < value:
             value = arg[key]
             min_item = key
     return min_item
@@ -65,18 +63,26 @@ def print_inventory(new_items: dict[str, int]) -> None:
 
     for key in new_items:
         value = new_items[key]
-        print(f"Item {key} represents {round(value / total_items * 100, 1)}%")
+        try:
+            print(
+                f"Item {key} represents {round(value / total_items * 100, 1)}%"
+            )
+        except ZeroDivisionError:
+            print(f"Item {key} represents 0%")
 
     max_item = find_max_item(new_items)
     min_item = find_min_item(new_items)
-    print(
-        f"Item most abundant: {max_item} with quantity {new_items[max_item]}"
-    )
-    print(
-        f"Item least abundant: {min_item} with quantity {new_items[min_item]}"
-    )
-    inventory.update(new_items)
-    print(f"Updated inventory: {inventory}")
+    if max_item is not None and min_item is not None:
+        print(
+            f"Item most abundant: {max_item} "
+            f"with quantity {new_items[max_item]}"
+        )
+        print(
+            f"Item least abundant: {min_item} "
+            f"with quantity {new_items[min_item]}"
+        )
+    new_items["magic_item"] = 1
+    print(f"Updated inventory: {new_items}")
 
 
 def main() -> None:
