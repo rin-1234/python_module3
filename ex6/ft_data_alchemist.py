@@ -36,4 +36,5 @@ def main() -> None:
 
 
 if __name__ == "__main__":
+    print("=== Game Data Alchemist ===")
     main()

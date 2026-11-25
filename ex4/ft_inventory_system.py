@@ -23,15 +23,12 @@ def find_min_item(arg: dict[str, int]) -> str | None:
 
 def validate_item(arg: list[str], new_items: dict[str, int]) -> None:
     if len(arg) != 2:
-        raise ValueError(
-            f"Expected 2 arguments, but {len(arg)} were provided. : {arg}"
-        )
+        raise ValueError(f"Error - Invalid parameter '{arg}'")
 
     key, value = arg
 
     if key in new_items:
         raise ValueError(f"Redundant item {key} - discarding")
-    # valueをintへ
     if int(value) < 0:
         raise ValueError(f"Invalid Value {value}: {arg}")
 
@@ -49,7 +46,7 @@ def receive_items() -> dict[str, int]:
             validate_item(entity, new_items)
             new_items.update({entity[0]: int(entity[1])})
         except ValueError as e:
-            print(f"Error - {e}")
+            print(e)
             continue
 
     return new_items
@@ -58,7 +55,7 @@ def receive_items() -> dict[str, int]:
 def print_inventory(new_items: dict[str, int]) -> None:
     total_items = sum(new_items.values())
     print(f"Got inventory: {new_items}")
-    print(f"Item list: {new_items.keys()}")
+    print(f"Item list: {list(new_items.keys())}")
     print(f"Total quantity of the {len(new_items.keys())} items {total_items}")
 
     for key in new_items:
@@ -91,4 +88,5 @@ def main() -> None:
 
 
 if __name__ == "__main__":
+    print("=== Inventory System Analysis ===")
     main()
