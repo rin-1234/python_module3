@@ -12,11 +12,11 @@ def main() -> None:
         )
         return
 
-    for i in range(1, argc):
+    for arg in sys.argv[1:]:
         try:
-            scores.append(int(sys.argv[i]))
+            scores.append(int(arg))
         except ValueError:
-            print(f"Invalid parameter: '{sys.argv[i]}'")
+            print(f"Invalid parameter: '{arg}'")
 
     list_len = len(scores)
     if list_len == 0:

@@ -12,8 +12,10 @@ def main() -> None:
         return
 
     print(f"Arguments received: {argc - 1}")
-    for i in range(1, argc):
-        print(f"Argument {i}: {sys.argv[i]}")
+    count = 0
+    for arg in sys.argv[1:]:
+        count += 1
+        print(f"Argument {count}: {arg}")
     print(f"Total arguments: {argc}")
 
 

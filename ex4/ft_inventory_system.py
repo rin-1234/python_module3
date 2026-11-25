@@ -40,9 +40,9 @@ def receive_items() -> dict[str, int]:
         print("No new items added")
         return new_items
 
-    for i in range(1, argc):
+    for arg in sys.argv[1:]:
         try:
-            entity = sys.argv[i].split(":")
+            entity = arg.split(":")
             validate_item(entity, new_items)
             new_items.update({entity[0]: int(entity[1])})
         except ValueError as e:
